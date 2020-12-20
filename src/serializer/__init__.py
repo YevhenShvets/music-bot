@@ -1,1 +1,2 @@
-from src.serializer.film_serializer import get_name_films_serealizer, get_film_info
+from src.serializer.film_serializer import get_name_films_serealizer, get_film_info_serealizer
+from src.serializer.music_serializer import get_music_list_serealizer

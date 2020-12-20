@@ -5,7 +5,7 @@ def get_name_films_serealizer(data):
     return answer
 
 
-def get_film_info(data):
+def get_film_info_serealizer(data):
     answer = ""
     answer += f"*{data['name']}*\n"
     answer += f"*Тип: *_{data['type']}_\n"
