@@ -18,6 +18,7 @@ def select_film(id: int):
             "image_url": row[5]
         }
         films.append(r)
+    cur.close()
     return films[0]
 
 
@@ -34,6 +35,7 @@ async def select_films_name():
             "name": row[1]
         }
         films.append(r)
+    cur.close()
     return films
 
 
@@ -52,6 +54,7 @@ def select_music(music_id):
             "url": row[3],
         }
         musics.append(r)
+    cur.close()
     return musics[0]
 
 
@@ -71,6 +74,7 @@ def select_music_list(film_id):
             "url": row[3]
         }
         musics.append(r)
+    cur.close()
     return musics
 
 
@@ -90,5 +94,30 @@ def select_liked_music(user_id):
             "url": row[3]
         }
         musics.append(r)
+    cur.close()
     return musics
+
+
+def select_film_activity(film_id):
+    cur = conn.cursor()
+    cur.execute('SELECT film_id, count_get FROM "FilmActivity" WHERE film_id=%s;', (film_id,))
+    activity = cur.fetchall()
+    r = {}
+    for row in activity:
+        r['film_id'] = row[0]
+        r['count_get'] = row[1]
+    cur.close()
+    return r
+
+
+def select_music_activity(music_id):
+    cur = conn.cursor()
+    cur.execute('SELECT music_id, count_get FROM "MusicActivity" WHERE music_id=%s;', (music_id,))
+    activity = cur.fetchall()
+    r = {}
+    for row in activity:
+        r['music_id'] = row[0]
+        r['count_get'] = row[1]
+    cur.close()
+    return r
 

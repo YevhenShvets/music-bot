@@ -55,3 +55,28 @@ def insert_liked_music(user_id, music_id):
     conn.commit()
     cur.close()
     return ans
+
+
+def insert_film_activity(film_id):
+    """
+
+    :param film_id: identify film
+    :return: None
+    """
+    cur = conn.cursor()
+    cur.execute('INSERT INTO "FilmActivity"(film_id, count_get) VALUES(%s, %s);', (film_id, 1))
+    conn.commit()
+    cur.close()
+
+
+def insert_music_activity(music_id):
+    """
+
+    :param music_id: idenfity music
+    :return: None
+    """
+    cur = conn.cursor()
+    cur.execute('INSERT INTO "MusicActivity"(music_id, count_get) VALUES(%s, %s)', (music_id, 1))
+    conn.commit()
+    cur.close()
+

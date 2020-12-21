@@ -11,6 +11,7 @@ from src.serializer.music_serializer import get_music_list_serealizer
 from src.menu.inline_menu import create_inline_for_film,\
     callback_form, create_inline_for_music_list,\
     create_inline_for_music
+from src.db.update import update_film_activity, update_music_activity
 
 
 @dp.callback_query_handler(callback_form.filter(action='delete'))
@@ -34,7 +35,7 @@ async def callback_handler_film_list(callback_query: types.CallbackQuery, callba
     film_id = callback_data['id']
     film = select_film(int(film_id))
     film_serialize = get_film_info_serealizer(film)
-
+    update_film_activity(int(film_id))
     base_dir = Path(__file__).resolve().parent.parent.parent
     base_dir = base_dir.joinpath('data/img/')
     await bot.send_photo(callback_query.message.chat.id,
@@ -48,6 +49,7 @@ async def callback_handler_film_list(callback_query: types.CallbackQuery, callba
 async def callback_handler_music_list(callback_query: types.CallbackQuery, callback_data: typing.Dict[str, str]):
     music_id = callback_data['id']
     music = select_music(int(music_id))
+    update_music_activity(int(music_id))
 
     base_dir = Path(__file__).resolve().parent.parent.parent
     base_dir = base_dir.joinpath('data/song/')
