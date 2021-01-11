@@ -39,6 +39,42 @@ async def select_films_name():
     return films
 
 
+async def select_top_films_name():
+    cur = conn.cursor()
+    cur.execute('SELECT id, name FROM "Film" INNER JOIN "FilmActivity" ON "FilmActivity".film_id="Film".id '
+                'ORDER BY "FilmActivity".count_get DESC;')
+
+    films_list = cur.fetchall()
+
+    films = []
+    for row in films_list:
+        r = {
+            "id": row[0],
+            "name": row[1]
+        }
+        films.append(r)
+    cur.close()
+    return films
+
+
+async def select_search_films_name(search_film):
+    cur = conn.cursor()
+    cur.execute('SELECT id, name FROM "Film" WHERE name iLIKE ' + "'%" + search_film + "%';")
+
+    films_list = cur.fetchall()
+
+    films = []
+    for row in films_list:
+        r = {
+            "id": row[0],
+            "name": row[1]
+        }
+        films.append(r)
+    cur.close()
+    return films
+
+
+
 def select_music(music_id):
     cur = conn.cursor()
     cur.execute('SELECT id, name, author, url FROM "Music" WHERE id=%s', (music_id,))
@@ -56,6 +92,26 @@ def select_music(music_id):
         musics.append(r)
     cur.close()
     return musics[0]
+
+
+def select_top_music():
+    cur = conn.cursor()
+    cur.execute('SELECT id, name, author, url FROM "Music" INNER JOIN "MusicActivity" '
+                'ON "MusicActivity".music_id="Music".id ORDER BY "MusicActivity".count_get DESC;')
+
+    music_list = cur.fetchall()
+
+    musics = []
+    for row in music_list:
+        r = {
+            "id": row[0],
+            "name": row[1],
+            "author": row[2],
+            "url": row[3],
+        }
+        musics.append(r)
+    cur.close()
+    return musics
 
 
 def select_music_list(film_id):

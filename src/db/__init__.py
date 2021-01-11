@@ -12,7 +12,10 @@ from src.db.select import select_film,\
     select_music,\
     select_liked_music,\
     select_film_activity,\
-    select_music_activity
+    select_music_activity,\
+    select_top_music,\
+    select_top_films_name,\
+    select_search_films_name
 
 from src.db.update import update_film_activity,\
     update_music_activity
