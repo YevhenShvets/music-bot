@@ -39,7 +39,8 @@ async def callback_handler_film_list(callback_query: types.CallbackQuery, callba
     base_dir = Path(__file__).resolve().parent.parent.parent
     base_dir = base_dir.joinpath('data/img/')
     await bot.send_photo(callback_query.message.chat.id,
-                         open(base_dir.joinpath(film['image_url']), 'rb'),
+                         # open(base_dir.joinpath(film['image_url']), 'rb'),
+                         film['image_url'],
                          film_serialize,
                          reply_markup=create_inline_for_film(film['id']),
                          parse_mode="Markdown")
@@ -54,7 +55,7 @@ async def callback_handler_music_list(callback_query: types.CallbackQuery, callb
     base_dir = Path(__file__).resolve().parent.parent.parent
     base_dir = base_dir.joinpath('data/song/')
     await bot.send_audio(callback_query.message.chat.id,
-                         open(base_dir.joinpath(music['url']), 'rb'),
+                         music['url'],
                          title=music['name'],
                          performer=music['author'],
                          reply_markup=create_inline_for_music(music['id']),
