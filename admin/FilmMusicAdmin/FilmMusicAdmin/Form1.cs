@@ -41,6 +41,10 @@ namespace FilmMusicAdmin
                             fs.Read(data, 0, data.Length);
                         }
                         DB.insert_film(name, type, description, director, data);
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                        richTextBox1.Text = "";
+                        textBox3.Text = "";
                     }
                     else
                     {
@@ -147,6 +151,8 @@ namespace FilmMusicAdmin
                         }
                         DB.insert_music(name, author, data);
                         DB.insert_music_film(Convert.ToInt32(film_id), DB.select_music_id(name, author));
+                        textBox6.Text = "";
+                        textBox5.Text = "";
                     }
                     else
                     {

@@ -122,9 +122,9 @@ namespace FilmMusicAdmin
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Тип фільму";
+            this.label4.Text = "Опис фільму";
             // 
             // richTextBox1
             // 
@@ -188,7 +188,7 @@ namespace FilmMusicAdmin
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 23);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Добавити";
+            this.button1.Text = "Додати";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -306,7 +306,7 @@ namespace FilmMusicAdmin
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(101, 23);
             this.button4.TabIndex = 18;
-            this.button4.Text = "Добавити";
+            this.button4.Text = "Додати";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

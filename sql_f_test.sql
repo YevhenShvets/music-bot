@@ -30,7 +30,7 @@ CREATE TABLE "User"(
 ALTER TABLE
     "User" ADD PRIMARY KEY("telegram_id");
 CREATE TABLE "LikedMusic"(
-    "id" INTEGER NOT NULL,
+    "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
     "music_id" INTEGER NOT NULL
 );

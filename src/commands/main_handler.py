@@ -13,7 +13,7 @@ from src.menu.inline_menu import create_inline_for_film_list
 @dp.message_handler(content_types=['text'])
 async def main_command(message: types.Message):
     if message.text == main_text:
-        await message.answer("/list - список фільмів", parse_mode="Markdown")
+        await message.answer("/list - список фільмів\n/my - мій плейлист\n/topmusic - список популярних саунтреків\n/topfilm - список популярниз фільмів", parse_mode="Markdown")
     elif message.text == my_music_text:
         await my_playlist(message)
     else:

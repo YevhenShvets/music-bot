@@ -35,7 +35,7 @@ namespace FilmMusicAdmin
                 cmd.Parameters.AddWithValue("@director", director);
                 cmd.Parameters.AddWithValue("@image_url", photo);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Добавлено", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Додано", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
@@ -58,7 +58,7 @@ namespace FilmMusicAdmin
                 cmd.Parameters.AddWithValue("@author", author);
                 cmd.Parameters.AddWithValue("@url", music);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Добавлено", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Додано", "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

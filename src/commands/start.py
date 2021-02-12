@@ -17,4 +17,4 @@ async def start_command(message: types.Message):
     # await message.answer("Hello " + message.from_user.full_name +"   "+ BASE_DIR.joinpath(
     # 'data/img/img1.png').__str__())
 
-    await message.answer_photo(open(BASE_DIR.joinpath('img3.jpg').__str__(), 'rb'), reply_markup=main_reply_menu)
+    await message.answer("/list - список фільмів\n/my - мій плейлист\n/topmusic - список популярних саунтреків\n/topfilm - список популярниз фільмів", parse_mode="Markdown")

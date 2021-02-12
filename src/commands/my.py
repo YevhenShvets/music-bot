@@ -13,8 +13,12 @@ async def my_playlist(message: types.Message):
     user_id = message.from_user.id
     music = select_liked_music(user_id)
     music_serialize = get_music_list_serealizer(music)
-
-    await bot.send_message(message.chat.id,
+    if music_serialize != "":
+        await bot.send_message(message.chat.id,
                            music_serialize,
                            reply_markup=create_inline_for_music_list(music),
                            parse_mode="Markdown")
+    else:
+        await bot.send_message(message.chat.id,
+                               "Музики немає",
+                               parse_mode="Markdown")
